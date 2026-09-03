@@ -133,14 +133,6 @@ for msg in st.session_state.messages:
     with st.chat_message("user" if isinstance(msg,HumanMessage) else "assistant"):
         st.write(msg.content)
 
-if not st.session_state.messages:
-    st.markdown('<div class="intro"><div class="intro-title">Welcome to LegalEase</div><div class="intro-text">Ask about a legal term, contract, right, procedure or legal document. LegalEase will explain it in simple language.</div></div>', unsafe_allow_html=True)
-    features=[("§","Legal terminology","Understand unfamiliar legal words and phrases."),("▤","Explain contracts","Break down clauses and explain what they mean."),("≡","Summarize documents","Turn lengthy legal text into a clear summary."),("◈","Basic rights","Learn general information about common legal rights."),("?","Questions for a lawyer","Prepare focused questions before a consultation."),("→","Legal procedures","Understand a legal process step by step.")]
-    for i in range(0,6,3):
-        cols=st.columns(3)
-        for col,(icon,title,desc) in zip(cols,features[i:i+3]):
-            with col:
-                st.markdown(f'<div class="feature"><div class="feature-icon">{icon}</div><div class="feature-title">{title}</div><div class="feature-text">{desc}</div></div>', unsafe_allow_html=True)
 
 def is_legal_question(text):
     classifier=ChatOpenAI(model=st.session_state.model,temperature=0,api_key=st.session_state.api_key)
