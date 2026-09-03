@@ -56,7 +56,14 @@ section[data-testid="stSidebar"]>div{padding:28px 20px}
 .hero h1{font-family:'Playfair Display',serif;font-size:48px;line-height:1.08;letter-spacing:-1.5px;margin:0;color:#182230}
 .hero p{max-width:620px;margin:15px auto 0;color:#687385;font-size:15px;line-height:1.65}
 .question-area{max-width:820px;margin:18px auto 26px;background:#fff;border:1px solid #e3e7ec;border-radius:18px;padding:18px;box-shadow:0 10px 35px rgba(20,30,45,.05)}
-.question-label{font-size:13px;font-weight:700;margin-bottom:8px;color:#182230}
+.question-label {
+    max-width: 820px;
+    margin: 0 auto 9px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #182230;
+    text-align: left;
+}
 div[data-testid="stTextArea"] textarea{border:1px solid #dfe4ea;border-radius:12px;background:#fbfcfd;color:#182230;font-size:14px;padding:14px;min-height:110px}
 div[data-testid="stTextArea"] textarea:focus{border-color:#b08d57;box-shadow:0 0 0 1px #b08d57}
 .stButton>button{border-radius:10px;font-weight:600;min-height:42px}
