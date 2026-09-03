@@ -130,14 +130,20 @@ st.markdown("""<div class="hero"><div class="hero-kicker">LEGAL INFORMATION, SIM
 <p>Ask questions about legal terms, contracts, procedures and basic rights — and get clear explanations in everyday language.</p></div>""", unsafe_allow_html=True)
 
 # The Streamlit textarea is deliberately OUTSIDE any HTML div.
-st.markdown(
-    '<div class="question-label">Ask LegalEase</div>',
-    unsafe_allow_html=True
-)
-question = st.text_area("Your legal question", placeholder="Example: What can my employer terminate me for without notice?", height=110, label_visibility="collapsed")
-c1,c2,c3=st.columns([1.25,1,1.25])
-with c2:
-    ask=st.button("⚖️  Ask LegalEase", type="primary", use_container_width=True)
+question_col = st.columns([0.5, 9, 0.5])[1]
+
+with question_col:
+    st.markdown(
+        '<div class="question-label">Ask LegalEase</div>',
+        unsafe_allow_html=True
+    )
+
+    question = st.text_area(
+        "Your legal question",
+        placeholder="Example: What can my employer terminate me for without notice?",
+        height=110,
+        label_visibility="collapsed"
+    )
 
 for msg in st.session_state.messages:
     with st.chat_message("user" if isinstance(msg,HumanMessage) else "assistant"):
