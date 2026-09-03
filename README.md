@@ -1,8 +1,10 @@
 # LegalEase AI
 
+Check here: https://legaleaseai-cthwvseohv3adhchzdng6v.streamlit.app/
+
 Streamlit Community Cloud-ready legal information assistant.
 
-## Run
+## Run in code editor
 `pip install -r requirements.txt`
 `streamlit run app.py`
 
