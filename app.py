@@ -204,12 +204,9 @@ if ask:
         chat=ChatOpenAI(model=st.session_state.model,temperature=0.2,api_key=st.session_state.api_key)
         conversation=[SystemMessage(content=LEGAL_PROMPT+f"\n\nCurrent focus: {st.session_state.focus}")] + st.session_state.messages
         with st.chat_message("assistant"):
-           with st.chat_message("assistant"):
-
-    with st.spinner("⚖️ Reviewing the legal question..."):
-        response = chat.invoke(conversation)
-
-    st.write(response.content)
+            with st.spinner("Preparing a clear legal explanation..."):
+                response=chat.invoke(conversation)
+            st.write(response.content)
         st.session_state.messages.append(AIMessage(content=response.content))
     except AuthenticationError:
         st.error("Your OpenAI API key is no longer valid. Please reconnect.")
